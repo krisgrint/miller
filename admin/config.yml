@@ -1,0 +1,94 @@
+backend:
+  name: github
+  repo: krisgrint/miller
+  branch: main
+  open_authoring: false
+  # You will need to set up a GitHub OAuth app and add its client ID below
+  auth_scope: repo
+  base_url: https://krisgrint.github.io/miller
+  site_domain: krisgrint.github.io
+  client_id: Ov23liqZ3tdYZHgiqvLY
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "content/home.md"
+        label: "Home Content"
+        name: "home"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Main Image", name: "main_image", widget: "image" }
+          - { label: "Body", name: "body", widget: "markdown" }
+  - name: "about"
+    label: "About Page"
+    files:
+      - file: "content/about.md"
+        label: "About Content"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Photo", name: "photo", widget: "image" }
+          - { label: "Body", name: "body", widget: "markdown" }
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "links"
+    label: "Useful Links"
+    files:
+      - file: "content/links.md"
+        label: "Links Content"
+        name: "links"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: "Links",
+              name: "links",
+              widget: "list",
+              fields:
+                [
+                  { label: "Label", name: "label", widget: "string" },
+                  { label: "URL", name: "url", widget: "string" },
+                ],
+            }
+  - name: "contact"
+    label: "Contact"
+    files:
+      - file: "content/contact.md"
+        label: "Contact Content"
+        name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "text" }
+          - { label: "Help Info", name: "help_info", widget: "markdown" }
+  - name: "newsletter"
+    label: "Newsletter"
+    files:
+      - file: "content/newsletter.md"
+        label: "Newsletter Content"
+        name: "newsletter"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Signup Info", name: "signup_info", widget: "markdown" }
+  - name: "social"
+    label: "Social Media"
+    files:
+      - file: "content/social.md"
+        label: "Social Media Content"
+        name: "social"
+        fields:
+          - { label: "Facebook", name: "facebook", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "Bluesky", name: "bluesky", widget: "string" }
